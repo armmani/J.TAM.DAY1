@@ -3,6 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 //Routing
 import userRouter from "./routes/user.js";
+import authRouter from "./routes/auth.js"
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json()); // for read body
 //   res.json({ message: "Hello CC20" });
 // });
 app.use("/api", userRouter);
+app.use("/auth", authRouter);
 
 const PORT = 8000;
 // Start Server
