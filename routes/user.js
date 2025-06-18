@@ -15,6 +15,10 @@ router.post("/user", (req, res) => {
   // code body
   res.json({message: "This is POST User"})
 });
+router.patch("/user/role/:id", (req, res) => {
+  // code body
+  res.json ({message: "This is PATCH role"})
+})
 
 //Export
 export default router;
