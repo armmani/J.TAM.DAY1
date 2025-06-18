@@ -1,6 +1,12 @@
 import express from "express";
 // Controllers
-import { createUser, listUser, readUser } from "../controllers/user.js";
+import {
+  createUser,
+  deleteUser,
+  listUser,
+  readUser,
+  updateRoleUser,
+} from "../controllers/user.js";
 
 const router = express.Router();
 
@@ -8,18 +14,8 @@ const router = express.Router();
 router.get("/users", listUser);
 router.get("/user", readUser);
 router.post("/user", createUser);
-router.patch("/user/role/:id", (req, res) => {
-  // code body
-  // console.log(req.params.id)
-  const { id } = req.params;
-  console.log(id);
-
-  res.json({ message: "This is PATCH role" });
-});
-router.delete("/user/:id", (req, res) => {
-  const { id } = req.params;
-  res.json({ message: `This is DELETE ${id}` });
-});
+router.patch("/user/role/:id", updateRoleUser);
+router.delete("/user/:id", deleteUser);
 
 //Export
 export default router;
