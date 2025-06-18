@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 //Routing
-import userRouter from './routes/user.js'
+import userRouter from "./routes/user.js";
 
 const app = express();
 
@@ -12,10 +12,11 @@ app.use(morgan("dev")); // show logs
 app.use(express.json()); // for read body
 
 // Routing GET PUT POST PATCH DELETE
-app.get("/", (req, res) => {
-  //code body
-  res.json({ message: "Hello CC20" });
-});
+// app.get("/", (req, res) => {
+//   //code body
+//   res.json({ message: "Hello CC20" });
+// });
+app.use("/api", userRouter);
 
 const PORT = 8000;
 // Start Server
